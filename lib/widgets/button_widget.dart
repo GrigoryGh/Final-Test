@@ -11,9 +11,10 @@ class HomeButton extends StatelessWidget {
   Color color;
   String title;
   IconData icon;
-
+  String routName;
   HomeButton(
       {super.key,
+      required this.routName,
       this.title = ' ',
       this.icon = Icons.numbers,
       this.color = Colors.green,
@@ -35,7 +36,7 @@ class HomeButton extends StatelessWidget {
                       bottomLeft: Radius.circular(bottomLeft)),
                   side: BorderSide(color: color)))),
       onPressed: () {
-        Navigator.of(context).pushNamed(AppRoutes.purchasesPage);
+        Navigator.of(context).pushNamed(routName);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

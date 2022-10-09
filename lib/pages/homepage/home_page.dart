@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:final_test/base/routes.dart';
 import 'package:final_test/widgets/button_widget.dart';
 import 'package:final_test/widgets/drawer.dart';
@@ -11,7 +13,7 @@ class HomePageWidget extends StatelessWidget {
     return Scaffold(
       endDrawer: const NavigatorDrawer(),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.red),
+        iconTheme: const IconThemeData(color: Colors.red),
         flexibleSpace: SizedBox(
             width: 120,
             height: 120,
@@ -25,41 +27,55 @@ class HomePageWidget extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     return SafeArea(
-      child: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(30),
-        crossAxisSpacing: 30,
-        mainAxisSpacing: 30,
-        crossAxisCount: 2,
+      child: Column(
         children: [
-          HomeButton(
-            color: Colors.purple,
-            topRight: 20,
-            bottomLeft: 20,
-            icon: Icons.play_arrow,
-            title: 'Play Now',
+          SizedBox(
+            height: 400,
+            child: GridView(
+              primary: false,
+              padding: const EdgeInsets.all(30),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10),
+              children: [
+                HomeButton(
+                  routName: AppRoutes.purchasesPage,
+                  color: Colors.purple,
+                  topRight: 20,
+                  bottomLeft: 20,
+                  icon: Icons.play_arrow,
+                  title: 'Play Now',
+                ),
+                HomeButton(
+                  routName: AppRoutes.purchasesPage,
+                  color: Colors.green,
+                  topLeft: 20,
+                  bottomRight: 20,
+                  icon: Icons.store,
+                  title: 'Purchases',
+                ),
+                HomeButton(
+                  routName: AppRoutes.purchasesPage,
+                  color: Colors.orange,
+                  topLeft: 20,
+                  bottomRight: 20,
+                  icon: Icons.format_list_numbered,
+                  title: 'LeaderBoard',
+                ),
+                HomeButton(
+                  routName: AppRoutes.purchasesPage,
+                  color: Colors.blue,
+                  topRight: 20,
+                  bottomLeft: 20,
+                  icon: Icons.man,
+                  title: 'Profile',
+                ),
+              ],
+            ),
           ),
-          HomeButton(
-            color: Colors.green,
-            topLeft: 20,
-            bottomRight: 20,
-            icon: Icons.store,
-            title: 'Purchases',
-          ),
-          HomeButton(
-            color: Colors.orange,
-            topLeft: 20,
-            bottomRight: 20,
-            icon: Icons.format_list_numbered,
-            title: 'Leaderboard',
-          ),
-          HomeButton(
-            color: Colors.blue,
-            topRight: 20,
-            bottomLeft: 20,
-            icon: Icons.man,
-            title: 'Profile',
-          ),
+          SizedBox(
+              height: 200, child: Image.asset('assets/images/bunnyTurtle.png'))
         ],
       ),
     );
