@@ -2,27 +2,21 @@ import 'package:dio/dio.dart';
 import 'package:final_test/models/quiz_model.dart';
 
 class QuizApi {
-  final Dio appDioClient;
+  final Dio appDioClient = Dio();
 
-  QuizApi(
-    this.appDioClient,
-  );
+  QuizApi();
 
-  Future<List<QuizModel>> getPurchasesData() async {
-    List<QuizModel> quiz= [];
+  Future<QuizModel> getQuizData() async {
+    QuizModel quizData;
 
     final result = await appDioClient.get(
-      'https://my-json-server.typicode.com/narekpog/my-json/Purchases',
+      'https://my-json-server.typicode.com/narekpog/my-json/quiz',
     );
 
-    if (result.data is List) {
-      quiz= result.data.first
-          .map<QuizModel>(
-            (e) => QuizModel.fromJson(e),
-          )
-          .toList();
-    }
+       var res = result.data as Map<String, dynamic>;
+    quizData = QuizModel.fromJson(res);
+    
 
-    return quiz;
+    return quizData;
   }
 }

@@ -1,11 +1,10 @@
 part of 'purchases_bloc.dart';
 
 @immutable
-abstract class PurchasesState extends Equatable {
+abstract class PurchasesState {
   const PurchasesState();
 
-  @override
-  List<Object?> get props => [];
+
 }
 
 class PurchasesInitial extends PurchasesState {}

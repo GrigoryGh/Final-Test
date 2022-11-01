@@ -9,11 +9,11 @@ part 'purchases_state.dart';
 
 class PurchasesBloc extends Bloc<PurchasesEvent, PurchasesState> {
   PurchasesBloc() : super(PurchasesInitial()) {
-    final PurchasesApi _purchasesApi = PurchasesApi();
+    final PurchasesApi purchasesApi = PurchasesApi();
 
     on<GetPurchasesList>(((event, emit) async {
-      emit(PurchasesLoading());
-      final mList = await _purchasesApi.getPurchasesData();
+      // emit(PurchasesLoading());
+      final mList = await purchasesApi.getPurchasesData();
       emit(PurchasesLoaded(mList));
     }));
   }

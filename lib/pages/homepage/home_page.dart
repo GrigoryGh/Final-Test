@@ -40,7 +40,7 @@ class HomePageWidget extends StatelessWidget {
                   crossAxisSpacing: 10),
               children: [
                 HomeButton(
-                  routName: AppRoutes.purchasesPage,
+                  routName: AppRoutes.quizPage,
                   color: Colors.purple,
                   topRight: 20,
                   bottomLeft: 20,

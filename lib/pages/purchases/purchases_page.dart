@@ -31,18 +31,18 @@ class _PurchasesPageState extends State<PurchasesPage> {
         ),
       ),
       body: BlocProvider(
-        create: (_) => _newsBloc,
-        child: BlocListener<PurchasesBloc, PurchasesState>(
-          listener: (context, state) {},
-          child: BlocBuilder<PurchasesBloc, PurchasesState>(
-            builder: (context, state) {
-              if (state is PurchasesLoaded) {
-                return _buildCard(context, state.purchasesList);
-              } else {
-                return const Text('Loading...');
-              }
-            },
-          ),
+        create: (context) => _newsBloc,
+        child: BlocBuilder<PurchasesBloc, PurchasesState>(
+          builder: (context, state) {
+            if (state is PurchasesLoaded) {
+              return _buildCard(context, state.purchasesList);
+            } else {
+              return const Center(
+                  child: CircularProgressIndicator(
+                color: Colors.green,
+              ));
+            }
+          },
         ),
       ),
     );

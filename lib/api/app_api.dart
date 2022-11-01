@@ -7,7 +7,7 @@ class TestAPI {
   static TestAPI? _singleton;
   late PurchasesApi purchases;
   late LeaderBoardApi leaderBoard;
-  late QuizApi quiz;
+  late QuizApi quizApi;
   Dio appDioClient = Dio();
 
   factory TestAPI() {
@@ -18,6 +18,6 @@ class TestAPI {
   TestAPI._internal() {
     purchases = PurchasesApi();
     leaderBoard = LeaderBoardApi(appDioClient);
-    quiz = QuizApi(appDioClient);
+    quizApi = QuizApi();
   }
 }

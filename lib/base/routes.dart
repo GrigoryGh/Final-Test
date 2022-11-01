@@ -4,11 +4,14 @@ import 'package:final_test/pages/pageview/pageview.dart';
 import 'package:final_test/pages/purchases/purchases_page.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/quiz/quiz_page.dart';
+
 class AppRoutes {
   static const login = '/';
   static const pageview = '/pageview';
   static const homepage = '/homepage';
   static const purchasesPage = '/purchasesPage';
+  static const quizPage = '/quizPage';
 
   static MaterialPageRoute onGenerateRoute(RouteSettings settings) {
     PageArguments? pageArguments;
@@ -21,6 +24,7 @@ class AppRoutes {
       AppRoutes.pageview: (context) => const PageViewWidget(),
       AppRoutes.homepage: (context) => const HomePageWidget(),
       AppRoutes.purchasesPage: (context) => const PurchasesPage(),
+      AppRoutes.quizPage: (context) => const QuizPage(),
     };
 
     WidgetBuilder builder = routes[settings.name] ?? routes.values.first;
