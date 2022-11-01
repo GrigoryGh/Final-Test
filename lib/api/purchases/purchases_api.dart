@@ -2,11 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:final_test/models/purchases_model.dart';
 
 class PurchasesApi {
-  final Dio appDioClient;
-
-  PurchasesApi(
-    this.appDioClient,
-  );
+  final Dio appDioClient = Dio();
 
   Future<List<PurchasesModel>> getPurchasesData() async {
     List<PurchasesModel> purchases = [];
