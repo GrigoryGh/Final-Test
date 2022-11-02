@@ -3,21 +3,8 @@ import 'package:final_test/pages/purchases/bloc/purchases_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PurchasesPage extends StatefulWidget {
+class PurchasesPage extends StatelessWidget {
   const PurchasesPage({super.key});
-
-  @override
-  State<PurchasesPage> createState() => _PurchasesPageState();
-}
-
-class _PurchasesPageState extends State<PurchasesPage> {
-  final PurchasesBloc _newsBloc = PurchasesBloc();
-
-  @override
-  void initState() {
-    _newsBloc.add(GetPurchasesList());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +18,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
         ),
       ),
       body: BlocProvider(
-        create: (context) => _newsBloc,
+        create: (context) => PurchasesBloc()..add(GetPurchasesList()),
         child: BlocBuilder<PurchasesBloc, PurchasesState>(
           builder: (context, state) {
             if (state is PurchasesLoaded) {

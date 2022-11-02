@@ -12,7 +12,6 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
     final QuizApi quizApi = QuizApi();
 
     on<GetQuizList>(((event, emit) async {
-      
       final mList = await quizApi.getQuizData();
       emit(QuizLoaded(mList));
     }));
