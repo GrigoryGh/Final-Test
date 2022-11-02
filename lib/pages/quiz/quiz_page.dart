@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../base/routes.dart';
 import 'bloc/quiz_bloc.dart';
 
 PageController controll = PageController();
@@ -114,32 +115,43 @@ class _QuizPageState extends State<QuizPage> {
                             ),
                           ),
                           SizedBox(
-                            height: 330,
-                            child: ListView.builder(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8),
-                                itemCount: state
-                                    .quizList.questions![index].answers!.length,
-                                itemBuilder: (BuildContext context, int ind) {
-                                  return ListTile(
-                                    tileColor: Colors.orange,
-                                    contentPadding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    onTap: (() {
-                                      controll.nextPage(
-                                          duration:
-                                              const Duration(milliseconds: 10),
-                                          curve: Curves.easeInExpo);
-                                    }),
-                                    title: Text(
-                                      state.quizList.questions![index]
-                                          .answers![ind].answerText
-                                          .toString(),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  );
-                                }),
-                          ),
+                              height: 330,
+                              child: ListView.builder(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  itemCount: state.quizList.questions![index]
+                                      .answers!.length,
+                                  itemBuilder: (BuildContext context, int ind) {
+                                    return Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ListTile(
+                                          tileColor: Colors.orange,
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  vertical: 8),
+                                          onTap: () {
+                                            if (index ==
+                                                state.quizList.questions!
+                                                        .length -
+                                                    1) {
+                                              Navigator.of(context)
+                                                  .pushReplacementNamed(
+                                                      AppRoutes.homepage);
+                                            } else {
+                                              controll.nextPage(
+                                                  duration: const Duration(
+                                                      milliseconds: 10),
+                                                  curve: Curves.easeInExpo);
+                                            }
+                                          },
+                                          title: Text(
+                                            state.quizList.questions![index]
+                                                .answers![ind].answerText
+                                                .toString(),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ));
+                                  }))
                         ],
                       ),
                     );

@@ -1,5 +1,6 @@
 import 'package:final_test/pages/auth/login/login_page.dart';
 import 'package:final_test/pages/homepage/home_page.dart';
+import 'package:final_test/pages/leaderboard/leaderboard_page.dart';
 import 'package:final_test/pages/pageview/pageview.dart';
 import 'package:final_test/pages/purchases/purchases_page.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class AppRoutes {
   static const homepage = '/homepage';
   static const purchasesPage = '/purchasesPage';
   static const quizPage = '/quizPage';
+  static const leaderBoardPage = '/leaderBoardPage';
 
   static MaterialPageRoute onGenerateRoute(RouteSettings settings) {
     PageArguments? pageArguments;
@@ -25,6 +27,7 @@ class AppRoutes {
       AppRoutes.homepage: (context) => const HomePageWidget(),
       AppRoutes.purchasesPage: (context) => const PurchasesPage(),
       AppRoutes.quizPage: (context) => const QuizPage(),
+      AppRoutes.leaderBoardPage: (context) => const LeaderBoardPage()
     };
 
     WidgetBuilder builder = routes[settings.name] ?? routes.values.first;

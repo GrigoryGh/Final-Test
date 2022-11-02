@@ -3,7 +3,7 @@ class LeaderBoardModel {
   String? userImageUrl;
   String? firstName;
   String? lastName;
-  double? score;
+  num? score;
 
   LeaderBoardModel(
       {this.id, this.userImageUrl, this.firstName, this.lastName, this.score});

@@ -8,9 +8,7 @@ abstract class PurchasesState {
 
 }
 
-class PurchasesInitial extends PurchasesState {
- 
-}
+class PurchasesInitial extends PurchasesState {}
 
 class PurchasesLoading extends PurchasesState {}
 

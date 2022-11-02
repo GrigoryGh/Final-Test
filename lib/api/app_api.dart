@@ -17,7 +17,7 @@ class TestAPI {
 
   TestAPI._internal() {
     purchases = PurchasesApi();
-    leaderBoard = LeaderBoardApi(appDioClient);
+    leaderBoard = LeaderBoardApi();
     quizApi = QuizApi();
   }
 }

@@ -2,13 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:final_test/models/leaderboard_model.dart';
 
 class LeaderBoardApi {
-  final Dio appDioClient;
+  final Dio appDioClient = Dio();
 
-  LeaderBoardApi(
-    this.appDioClient,
-  );
+  LeaderBoardApi();
 
-  Future<List<LeaderBoardModel>> getPurchasesData() async {
+  Future<List<LeaderBoardModel>> getLeaderBoardData() async {
     List<LeaderBoardModel> leaderBoard = [];
 
     final result = await appDioClient.get(
@@ -16,7 +14,7 @@ class LeaderBoardApi {
     );
 
     if (result.data is List) {
-      leaderBoard = result.data.first
+      leaderBoard = result.data
           .map<LeaderBoardModel>(
             (e) => LeaderBoardModel.fromJson(e),
           )

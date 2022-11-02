@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:final_test/base/routes.dart';
 import 'package:final_test/widgets/button_widget.dart';
 import 'package:final_test/widgets/drawer.dart';
@@ -56,7 +54,7 @@ class HomePageWidget extends StatelessWidget {
                   title: 'Purchases',
                 ),
                 HomeButton(
-                  routName: AppRoutes.purchasesPage,
+                  routName: AppRoutes.leaderBoardPage,
                   color: Colors.orange,
                   topLeft: 20,
                   bottomRight: 20,
