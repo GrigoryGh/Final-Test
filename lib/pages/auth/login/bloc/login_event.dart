@@ -7,5 +7,9 @@ abstract class LoginEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class ViewPassword extends LoginEvent {
+class ViewPassword extends LoginEvent {}
+
+class ChangeCheckBox extends LoginEvent {
+  // bool value = false;
+  // ChangeCheckBox(this.value);
 }
