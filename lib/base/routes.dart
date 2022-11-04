@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../pages/quiz/quiz_page.dart';
 
 class AppRoutes {
-  static const login = '/';
+  static const login = '/login';
   static const pageview = '/pageview';
   static const homepage = '/homepage';
   static const purchasesPage = '/purchasesPage';

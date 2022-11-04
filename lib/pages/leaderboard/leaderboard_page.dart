@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:final_test/pages/leaderboard/bloc/leaderboard_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../models/leaderboard_model.dart';

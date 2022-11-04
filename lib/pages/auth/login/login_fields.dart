@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/login_bloc.dart';
-import 'login_page.dart';
+import 'login_reg.dart';
 
 Widget fields(BuildContext context, LoginState state) {
-  // return BlocBuilder<LoginBloc, LoginState>(
-  //   builder: (context, state) {
   return Container(
     padding: const EdgeInsets.only(
       right: 25,

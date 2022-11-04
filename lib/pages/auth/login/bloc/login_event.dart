@@ -10,6 +10,4 @@ abstract class LoginEvent extends Equatable {
 class ViewPassword extends LoginEvent {}
 
 class ChangeCheckBox extends LoginEvent {
-  // bool value = false;
-  // ChangeCheckBox(this.value);
 }

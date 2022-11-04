@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../base/reg_exp.dart';
 import '../../../base/routes.dart';
-import 'login_page.dart';
+
+TextEditingController usernameCtrl = TextEditingController();
+TextEditingController passwordCtrl = TextEditingController();
 
 void onLogin(context) {
   final regExp = RegExp(RegularExpressions.email);

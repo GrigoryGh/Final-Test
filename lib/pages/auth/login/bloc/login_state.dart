@@ -14,7 +14,7 @@ class LoginState extends Equatable {
       checkBox: checkBox ?? this.checkBox,
     );
   }
-
+ 
   @override
   List<Object> get props => [showPassword, checkBox];
 }
