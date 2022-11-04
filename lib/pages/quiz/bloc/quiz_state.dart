@@ -10,5 +10,6 @@ class QuizLoading extends QuizState {}
 
 class QuizLoaded extends QuizState {
   final QuizModel quizList;
+
   const QuizLoaded(this.quizList);
 }

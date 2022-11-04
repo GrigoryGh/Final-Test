@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'bloc/pageview_bloc.dart';
 import 'element_list.dart';
 
 final PageController controller = PageController();
-
-
 
 class PageViewWidget extends StatelessWidget {
   const PageViewWidget({super.key});

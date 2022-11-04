@@ -47,17 +47,22 @@ Widget _buildBoard(BuildContext context, List<LeaderBoardModel> mList) {
             title: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: CircleAvatar(
-                    radius: 35,
-                    backgroundColor: Color.fromARGB(
-                        255, Random().nextInt(255), Random().nextInt(255), 0),
-                    child: Text(
-                      mList[index].firstName![0].toString(),
-                      style: const TextStyle(fontSize: 40, color: Colors.white),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.only(right: 20),
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundImage: mList[index].userImageUrl == null
+                          ? null
+                          : NetworkImage(mList[index].userImageUrl!),
+                      backgroundColor: Color.fromARGB(
+                          255, Random().nextInt(255), Random().nextInt(255), 0),
+                      child: mList[index].userImageUrl == null
+                          ? Text(
+                              mList[index].firstName![0].toString(),
+                              style: const TextStyle(
+                                  fontSize: 40, color: Colors.white),
+                            )
+                          : null,
+                    )),
                 Text(
                   mList[index].firstName.toString(),
                   style: const TextStyle(fontSize: 20),

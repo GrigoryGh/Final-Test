@@ -36,6 +36,13 @@ class PurchasesPage extends StatelessWidget {
   }
 }
 
+List colorsList = [
+  Colors.red,
+  Colors.blue,
+  Colors.green,
+  Colors.purple,
+  Colors.yellow
+];
 Widget _buildCard(BuildContext context, List<PurchasesModel> modelList) {
   return ListView.builder(
       itemBuilder: (context, index) {
@@ -49,7 +56,8 @@ Widget _buildCard(BuildContext context, List<PurchasesModel> modelList) {
                 height: 50,
                 width: 50,
                 decoration: BoxDecoration(
-                    color: Colors.red, borderRadius: BorderRadius.circular(10)),
+                    color: colorsList[index],
+                    borderRadius: BorderRadius.circular(10)),
                 child: Text(
                   modelList[index].playsCount.toString(),
                   style: const TextStyle(color: Colors.white),

@@ -1,4 +1,5 @@
 import 'package:final_test/base/routes.dart';
+import 'package:final_test/pages/homepage/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      home: HomePageWidget(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       onGenerateRoute: AppRoutes.onGenerateRoute,

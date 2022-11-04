@@ -7,3 +7,7 @@ abstract class QuizEvent extends Equatable {
 }
 
 class GetQuizList extends QuizEvent {}
+
+class TimeEvent extends QuizEvent{
+
+}

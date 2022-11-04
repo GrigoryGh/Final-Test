@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:final_test/base/routes.dart';
 import 'package:final_test/widgets/button_widget.dart';
 import 'package:final_test/widgets/drawer.dart';
@@ -79,3 +81,38 @@ class HomePageWidget extends StatelessWidget {
     );
   }
 }
+
+// class HomePageWidget extends StatefulWidget {
+//   const HomePageWidget({super.key});
+
+//   @override
+//   State<HomePageWidget> createState() => _HomePageWidgetState();
+// }
+
+// class _HomePageWidgetState extends State<HomePageWidget> {
+//   static const maxSecond = 20;
+//   int seconds = maxSecond;
+//   Timer? timer;
+
+//   void startTimer() {
+//     timer = Timer.periodic(const Duration(seconds: 1), (_) {
+//       setState(() => seconds--);
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Column(
+//         children: [
+//           Center(child: Text('$seconds')),
+//           ElevatedButton(
+//               onPressed: () {
+//                 startTimer();
+//               },
+//               child: Text('Start'))
+//         ],
+//       ),
+//     );
+//   }
+// }
