@@ -1,9 +1,7 @@
 import 'dart:math';
-
 import 'package:final_test/pages/leaderboard/bloc/leaderboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../models/leaderboard_model.dart';
 
 class LeaderBoardPage extends StatelessWidget {
@@ -21,7 +19,10 @@ class LeaderBoardPage extends StatelessWidget {
         child: BlocBuilder<LeaderboardBloc, LeaderboardState>(
           builder: (context, state) {
             if (state is LeaderboardLoaded) {
-              return _buildBoard(context, state.leaderList);
+              return _buildBoard(
+                  context,
+                  state.leaderList
+                    ..sort(((a, b) => b.score!.compareTo(a.score!))));
             } else {
               return const Center(
                   child: CircularProgressIndicator(
