@@ -19,6 +19,10 @@ Widget _buildBody(BuildContext context) {
       validationMessages: {
         ValidationMessage.required: (error) => 'Field must not be empty',
         ValidationMessage.email: (error) => 'Must enter a valid email',
+        ValidationMessage.mustMatch: (error) =>
+            'Cannot pack! The passwords are different!',
+        ValidationMessage.pattern: (error) =>
+            'The password must have \n one capital letter, one lowercase letter, one number \n [minimum length 8]'
       },
       child: SafeArea(
         child: SingleChildScrollView(
