@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:final_test/pages/leaderboard/bloc/leaderboard_bloc.dart';
+import 'package:final_test/pages/purchases/purchases_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../models/leaderboard_model.dart';
@@ -44,18 +45,23 @@ Widget _buildBoard(BuildContext context, List<LeaderBoardModel> mList) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30))),
+            hoverColor: Colors.orange[100],
+            focusColor: Colors.orange[100],
             onTap: (() {}),
             title: Row(
               children: [
                 Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: CircleAvatar(
-                      radius: 35,
+                      radius: 25,
                       backgroundImage: mList[index].userImageUrl == null
                           ? null
                           : NetworkImage(mList[index].userImageUrl!),
-                      backgroundColor: Color.fromARGB(
-                          255, Random().nextInt(255), Random().nextInt(255), 0),
+                      backgroundColor: colorsList[index],
                       child: mList[index].userImageUrl == null
                           ? Text(
                               mList[index].firstName![0].toString(),
@@ -74,7 +80,7 @@ Widget _buildBoard(BuildContext context, List<LeaderBoardModel> mList) {
               padding: const EdgeInsets.only(top: 20),
               child: Text(
                 '${(index + 1).toString()}.',
-                style: const TextStyle(fontSize: 30),
+                style: const TextStyle(fontSize: 25),
               ),
             ),
             trailing: Text(

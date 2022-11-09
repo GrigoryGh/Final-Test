@@ -1,58 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../../base/reg_exp.dart';
 import '../../../base/routes.dart';
+import 'bloc/login_bloc.dart';
 
-TextEditingController usernameCtrl = TextEditingController();
-TextEditingController passwordCtrl = TextEditingController();
-
-void onLogin(context) {
-  final regExp = RegExp(RegularExpressions.email);
-
-  if (usernameCtrl.text.isNotEmpty && passwordCtrl.text.isNotEmpty) {
-    if (regExp.hasMatch(usernameCtrl.text)) {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.pageview);
-    } else {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return _dialog(
-            context,
-            title: 'Error',
-            content: 'Username is invalid',
-          );
-        },
-      );
-    }
-  } else {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return _dialog(
-          context,
-          title: 'Error',
-          content: 'Some of the credentials are empty',
-        );
-      },
-    );
-  }
-}
-
-Widget _dialog(
-  context, {
-  required String title,
-  String? content,
-}) {
-  return AlertDialog(
-    title: Text(title),
-    content: Text(content ?? 'Some of the credentials are empty'),
-    actions: [
-      TextButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: const Text('OK'),
-      ),
-    ],
-  );
+void onLogin(context, LoginState state) {
+  state.formGroup.valid
+      ? Navigator.of(context).pushReplacementNamed(AppRoutes.pageview)
+      : state.formGroup.markAllAsTouched();
 }

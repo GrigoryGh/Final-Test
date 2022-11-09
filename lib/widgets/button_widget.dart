@@ -4,19 +4,21 @@ import 'package:flutter/material.dart';
 import '../base/routes.dart';
 
 class HomeButton extends StatelessWidget {
+  Color textColor;
   double topLeft;
   double topRight;
   double bottomLeft;
   double bottomRight;
   Color color;
   String title;
-  IconData icon;
+  IconData? icon;
   String routName;
   HomeButton(
       {super.key,
       required this.routName,
       this.title = ' ',
-      this.icon = Icons.numbers,
+      this.textColor = Colors.white,
+      this.icon,
       this.color = Colors.green,
       this.topLeft = 0,
       this.topRight = 0,
@@ -41,13 +43,15 @@ class HomeButton extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(
-            icon,
-            size: 100,
-          ),
+          icon != null
+              ? Icon(
+                  icon,
+                  size: 100,
+                )
+              : SizedBox(),
           Text(
             title,
-            style: const TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, color: textColor),
           )
         ],
       ),

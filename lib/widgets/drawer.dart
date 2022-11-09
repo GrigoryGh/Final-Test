@@ -11,67 +11,33 @@ class NavigatorDrawer extends StatelessWidget {
           body: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ListTile(
-                title: const Text('Scores'),
-                leading: const Icon(
-                  Icons.score,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
+              drawerTile(
+                'Score',
+                Icons.score,
               ),
-              ListTile(
-                title: const Text('Prize Payout'),
-                leading: const Icon(
-                  Icons.card_membership,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
+              drawerTile(
+                'Prize Payout',
+                Icons.card_membership,
               ),
-              ListTile(
-                  title: const Text('Rules'),
-                  leading: const Icon(
-                    Icons.document_scanner,
-                    color: Colors.red,
-                    size: 40,
-                  ),
-                  onTap: () {}),
-              ListTile(
-                title: const Text('Support'),
-                leading: const Icon(
-                  Icons.phone_missed_sharp,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
+              drawerTile(
+                'Rules',
+                Icons.document_scanner,
               ),
-              ListTile(
-                title: const Text('About'),
-                leading: const Icon(
-                  Icons.warning,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
+              drawerTile(
+                'Support',
+                Icons.phone_missed_sharp,
               ),
-              ListTile(
-                title: const Text('Buy Our Book'),
-                leading: const Icon(
-                  Icons.book,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
+              drawerTile(
+                'About',
+                Icons.warning,
               ),
-              ListTile(
-                title: const Text('Sign Out'),
-                leading: const Icon(
-                  Icons.logout,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onTap: () {},
+              drawerTile(
+                'Buy Our Book',
+                Icons.book,
+              ),
+              drawerTile(
+                'Sign Out',
+                Icons.logout,
               ),
             ],
           ),
@@ -79,4 +45,16 @@ class NavigatorDrawer extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget drawerTile(text, icon) {
+  return ListTile(
+    title: Text(text),
+    leading: Icon(
+      icon,
+      color: Colors.red,
+      size: 40,
+    ),
+    onTap: () {},
+  );
 }

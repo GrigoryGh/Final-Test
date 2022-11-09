@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'package:final_test/base/routes.dart';
+import 'package:final_test/pages/homepage/home_page.dart';
 import 'package:final_test/pages/purchases/purchases_page.dart';
+import 'package:final_test/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/quiz_bloc.dart';
@@ -170,7 +173,6 @@ Widget quizQuestions() {
                                                       .correctAnswer ==
                                                   true) {
                                                 score += seconds;
-
                                                 controll.nextPage(
                                                     duration: const Duration(
                                                         milliseconds: 100),
@@ -210,9 +212,34 @@ Widget quizQuestions() {
 
 class ScorePageWidget extends StatelessWidget {
   const ScorePageWidget({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Text('$score');
+    return Scaffold(
+      body: Container(
+          color: Colors.green,
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('score',
+                  style: TextStyle(fontSize: 50, color: Colors.white)),
+              Text(
+                '$score',
+                style: const TextStyle(fontSize: 50, color: Colors.white),
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              HomeButton(
+                routName: AppRoutes.homepage,
+                title: 'Go to HomePage',
+                color: Colors.white,
+                topRight: 10,
+                bottomLeft: 10,
+                textColor: Colors.black,
+              )
+            ],
+          ))),
+    );
   }
 }

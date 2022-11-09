@@ -37,11 +37,11 @@ class PurchasesPage extends StatelessWidget {
 }
 
 List colorsList = [
-  Colors.red,
   Colors.blue,
-  Colors.green,
+  Colors.red,
+  Colors.yellow,
   Colors.purple,
-  Colors.yellow
+  Colors.green,
 ];
 Widget _buildCard(BuildContext context, List<PurchasesModel> modelList) {
   return ListView.builder(
@@ -51,25 +51,44 @@ Widget _buildCard(BuildContext context, List<PurchasesModel> modelList) {
           child: ListTile(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            leading: Container(
+            leading: Stack(alignment: Alignment.center, children: [
+              Container(
                 alignment: Alignment.center,
                 height: 50,
                 width: 50,
                 decoration: BoxDecoration(
                     color: colorsList[index],
                     borderRadius: BorderRadius.circular(10)),
-                child: Text(
-                  modelList[index].playsCount.toString(),
-                  style: const TextStyle(color: Colors.white),
-                )),
+              ),
+              Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.white, style: BorderStyle.solid),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignment: Alignment.center,
+                  height: 40,
+                  width: 40,
+                  child: Column(
+                    children: [
+                      Text(
+                        modelList[index].playsCount.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      const Text(
+                        'Plays',
+                        style: TextStyle(color: Colors.white, fontSize: 10),
+                      )
+                    ],
+                  ))
+            ]),
             trailing: Text(
               '\$${modelList[index].price.toString()}',
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 0, 64, 117), fontSize: 30),
+              style: TextStyle(color: colorsList[index], fontSize: 30),
             ),
             title: Text(
               modelList[index].title!,
-              style: const TextStyle(color: Color.fromARGB(255, 0, 64, 117)),
+              style: TextStyle(color: colorsList[index]),
             ),
             subtitle: Text(modelList[index].subTitle ?? ''),
             onTap: () {},
